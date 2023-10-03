@@ -57,14 +57,17 @@ function Parent() {
     }
 
     return (
-        <div className="Parent">
-            <h1>Parent</h1>
-            <button onClick={buttonHandler}>ACTIVATE!</button>
-            <p><i>{childGiverNumber != null && childGiverNumber !== -1 ? 'Random number received by Parent from ChildGiver:' : null}</i></p>
-            <h3><i>{childGiverNumber != null && childGiverNumber !== -1 ? childGiverNumber : null}</i></h3>
-            <ChildReceiver parentResult={parentValue} />
-            <ChildGiver giveNumberToParent={giveNumberToParent} />
-            <br></br>
+        <div className="Parent" class="row bg-dark text-light">
+            <div class="col-md-12">
+                <h1 class="display-1 d-flex justify-content-center">Parent</h1>
+                <div class="d-flex justify-content-center">
+                    <button onClick={buttonHandler} class="btn btn-lg rounded-pill btn-light text-dark m-3">ACTIVATE!</button>
+                </div>
+                <p class="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? 'Random number received from ChildGiver:' : null}</i></p>
+                <h3 class="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? childGiverNumber : null}</i></h3>
+                <ChildReceiver parentResult={parentValue} />
+                <ChildGiver giveNumberToParent={giveNumberToParent} />
+            </div>
         </div>
     )
 }

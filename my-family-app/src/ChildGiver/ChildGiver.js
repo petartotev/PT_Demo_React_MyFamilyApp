@@ -9,11 +9,13 @@ function ChildGiver({giveNumberToParent}) {
     }
 
     return (
-        <div className="ChildGiver">
-            <h2>ChildGiver</h2>
-            <button onClick={() => giveNumberToParent(setRandomValueToChildNumber())}>GENERATE NUMBER</button>
-            <br></br>
-            <br></br>
+        <div className="ChildGiver" class="row bg-info text-light m-3">
+            <div class="col-md-12 m-3">
+                <h2 class="display-4 d-flex justify-content-center">ChildGiver</h2>
+                <div class="d-flex justify-content-center">
+                    <button onClick={() => giveNumberToParent(setRandomValueToChildNumber())} class="btn btn-lg rounded-pill btn-light text-info ">GENERATE NUMBER</button>
+                </div>
+            </div>
         </div>
     )
 }
