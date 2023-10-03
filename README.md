@@ -1,5 +1,7 @@
 # PT_Demo_React_MyFamilyApp
 
+![scrot](./res/scrot_0.png)
+
 ## Contents
 - [General Information](#general-information)
 - [Create new React project](#create-new-react-project)
