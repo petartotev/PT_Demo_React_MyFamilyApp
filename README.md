@@ -6,6 +6,8 @@
 - [General Information](#general-information)
 - [Create new React project](#create-new-react-project)
 - [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
+- [Use React Bootstrap Components](#use-react-bootstrap-components)
+- [Useful Links](#useful-links)
 
 ## General Information
 https://legacy.reactjs.org/docs/handling-events.html
@@ -34,7 +36,7 @@ https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/
 
 1. In command prompt, set the React project directory as current:
 ```
-cd my-familty-app
+cd my-family-app
 ```
 2. Using node package manager, install bootstrap:
 ```
@@ -56,3 +58,30 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import $ from 'jquery';
 import Popper from 'popper.js';
 ```
+
+## Use React Bootstrap Components
+1. In command prompt, set the React project directory as current:
+```
+cd my-family-app
+```
+2. Using node package manager, install:
+```
+npm install react-bootstrap bootstrap
+```
+3. Go to https://react-bootstrap.netlify.app/docs/components/accordion and choose your preferred component.
+4. Import the component and use it:
+```
+import Spinner from 'react-bootstrap/Spinner';
+
+function GrowExample() {
+  return <Spinner animation="grow" />;
+}
+
+export default GrowExample;
+```
+
+## Useful Links
+- https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values
+- https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
+- https://react.dev/reference/react-dom/components/input
+- https://getbootstrap.com/docs/5.0/components/modal/#static-backdrop

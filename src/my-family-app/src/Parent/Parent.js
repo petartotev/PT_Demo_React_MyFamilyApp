@@ -63,9 +63,10 @@ function Parent() {
                 <div class="d-flex justify-content-center">
                     <button onClick={buttonHandler} class="btn btn-lg rounded-pill btn-light text-dark m-3">ACTIVATE!</button>
                 </div>
+                <hr></hr>
                 <p class="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? 'Random number received from ChildGiver:' : null}</i></p>
                 <h3 class="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? childGiverNumber : null}</i></h3>
-                <ChildReceiver parentResult={parentValue} />
+                <ChildReceiver parentResult={parentValue} childGiverValue={childGiverNumber} />
                 <ChildGiver giveNumberToParent={giveNumberToParent} />
             </div>
         </div>
