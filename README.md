@@ -83,5 +83,9 @@ export default GrowExample;
 ## Useful Links
 - https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values
 - https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
+- https://stackoverflow.com/questions/74191314/how-do-i-change-a-switch-size-in-react-bootstrap
 - https://react.dev/reference/react-dom/components/input
 - https://getbootstrap.com/docs/5.0/components/modal/#static-backdrop
+- https://getbootstrap.com/docs/5.0/utilities/spacing/
+- https://getbootstrap.com/docs/5.1/forms/checks-radios/
+- https://react-bootstrap.netlify.app/docs/components/spinners

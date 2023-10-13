@@ -6,7 +6,7 @@ function PersonTable() {
 
     return (
         <div class="bg-dark text-light">
-            <h2 class="display-6 d-flex justify-content-center">PersonTable</h2>
+            <h6 class="display-6 d-flex justify-content-center">PersonTable</h6>
             <table class="table table-striped table-dark text-warning">
                 <thead>
                     <tr>

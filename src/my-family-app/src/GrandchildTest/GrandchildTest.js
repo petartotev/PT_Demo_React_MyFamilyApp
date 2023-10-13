@@ -10,7 +10,7 @@ function GrandchildTest() {
     return (
         <div className="row bg-warning text-dark m-3">
             <div class="col-md-12 mb-3">
-                <h2 class="display-5 d-flex justify-content-center">GrandchildTest</h2>
+                <h5 class="display-5 d-flex justify-content-center">GrandchildTest</h5>
                 {
                     !grandchildTestValue ?
                     <div class="mt-3 mb-3">
