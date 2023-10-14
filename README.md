@@ -7,7 +7,8 @@
 - [Create new React Project](#create-new-react-project)
 - [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
 - [Use React Bootstrap Components](#use-react-bootstrap-components)
-- [Debug React App](#debug-react-app)
+- [Debugging React App](#debugging-react-app)
+- [ESLint with React](#eslint-with-react)
 - [Useful Links](#useful-links)
 
 ## General Information
@@ -86,7 +87,7 @@ function GrowExample() {
 export default GrowExample;
 ```
 
-## Debug React App
+## Debugging React App
 In order to debug React Create App (RCA) in Visual Studio Code (VSC), you need to follow these steps:
 
 1. In VSC, go to ```[Run]``` tab > ```[Add Configuration...]``` > select ```Web App (Chrome)```
@@ -116,14 +117,40 @@ npm start
 5. Go to ```[Run]``` tab > ```[Start Debugging]``` or press F5
 6. Voila! You should have hit the breakpoint!
 
+## ESLint with React
+In order to execute ESLint for all ```.js``` files in your React repository, you need to:
+1. Add the following line in the ```"scripts"``` block of the ```package.json``` file:
+```
+{
+  ...,
+  "scripts": {
+    ...
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
+  },
+  ...
+}
+```
+2. Run the following command:
+```
+npm run lint
+```
+
+
 ## Useful Links
+### React
+- https://react.dev/reference/react-dom/components/input
+### JS
 - https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values
 - https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
-- https://stackoverflow.com/questions/74191314/how-do-i-change-a-switch-size-in-react-bootstrap
-- https://react.dev/reference/react-dom/components/input
+
+### Debugging
+- [Configuring VSCODE DEBUGGER for Create React App (CRA) - no more console.log | JavaScript - youtube clip
+](https://www.youtube.com/watch?v=d_ScKLTKyOc)
+### ESLint
+- https://stackoverflow.com/questions/45089410/how-to-run-eslint-in-create-react-app
+### Bootstrap 5 and React-Bootstrap
 - https://getbootstrap.com/docs/5.0/components/modal/#static-backdrop
 - https://getbootstrap.com/docs/5.0/utilities/spacing/
 - https://getbootstrap.com/docs/5.1/forms/checks-radios/
 - https://react-bootstrap.netlify.app/docs/components/spinners
-- [Configuring VSCODE DEBUGGER for Create React App (CRA) - no more console.log | JavaScript - youtube clip
-](https://www.youtube.com/watch?v=d_ScKLTKyOc)
+- https://stackoverflow.com/questions/74191314/how-do-i-change-a-switch-size-in-react-bootstrap
