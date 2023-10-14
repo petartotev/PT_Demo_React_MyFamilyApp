@@ -3,11 +3,13 @@
 ![scrot](./res/scrot_0.png)
 
 ## Contents
+
 - [General Information](#general-information)
 - [Create new React Project](#create-new-react-project)
 - [Debugging React App](#debugging-react-app)
   - [Set Debugging](#set-debugging)
   - [Debug Console Known Issues](#debug-console-known-issues)
+- [Known Issues](#known-issues)
 - [ESLint with React](#eslint-with-react)
 - [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
 - [Use React Bootstrap Components](#use-react-bootstrap-components)
@@ -21,9 +23,13 @@
   - [Font Awesome](#font-awesome)
 
 ## General Information
-https://legacy.reactjs.org/docs/handling-events.html
+
+PT_Demo_React_MyFamilyApp is a React application using a ```Create React App (CRA)``` template.
+
+![scrot](./res/scrot_1.png)
 
 ## Create new React Project
+
 1. Check if you have ```node```, ```npm``` and ```npx``` installed:
 ```
 node --version
@@ -49,6 +55,7 @@ npm start
 ## Debugging React App
 
 ### Set Debugging
+
 In order to debug React Create App (RCA) in Visual Studio Code (VSC), you need to follow these steps:
 
 1. In VSC, go to ```[Run]``` tab > ```[Add Configuration...]``` > select ```Web App (Chrome)```
@@ -79,7 +86,8 @@ npm start
 6. Voila! You should have hit the breakpoint!
 
 ### Debug Console Known Issues
-```Warning: Invalid DOM property `for`. Did you mean `htmlFor`?```
+
+```⚠️ Warning: Invalid DOM property `for`. Did you mean `htmlFor`?```
 ```
 <label for="exampleInputAnimal1">Add animal and press ENTER</label>
 ```
@@ -90,7 +98,7 @@ Fix:
 
 ---
 
-```Warning: Each child in a list should have a unique "key" prop.```
+```⚠️ Warning: Each child in a list should have a unique "key" prop.```
 ```
 <ul>{myAnimals.map(x => <li>{x}</li>)}</ul>
 ```
@@ -101,7 +109,7 @@ Fix:
 
 ---
 
-```Warning: Invalid DOM property `tabindex`. Did you mean `tabIndex`?```
+```⚠️ Warning: Invalid DOM property `tabindex`. Did you mean `tabIndex`?```
 
 ```
 <div className="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -115,7 +123,29 @@ Fix:
 </div>
 ```
 
+```⚠️ Too many re-renders. React limits the number of renders to prevent an infinite loop.```
+
+```
+<FontAwesomeIcon="fa-caret-down" onClick={setState([...myPeople].sort((a,b) => a.firstName))} />
+```
+Fix:
+```
+<FontAwesomeIcon="fa-caret-down" onClick={() => setState([...myPeople].sort((a,b) => a.firstName))} />
+```
+
+## Known Issues
+
+```⚠️ onClick property function triggers without click```
+```
+<button onClick={setMyAnimals([...myAnimals].sort())}>CLICK</button>
+```
+Fix:
+```
+<button onClick={() => setMyAnimals([...myAnimals].sort())}>CLICK</button>
+```
+
 ## ESLint with React
+
 In order to execute ESLint for all ```.js``` files in your React repository, you need to:
 1. Add the following line in the ```"scripts"``` block of the ```package.json``` file:
 ```
@@ -134,6 +164,7 @@ npm run lint
 ```
 
 ## Install Bootstrap 5 for React
+
 You can use the following link as a reference:  
 https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/
 
@@ -163,6 +194,7 @@ import Popper from 'popper.js';
 ```
 
 ## Use React-Bootstrap Components
+
 1. In command prompt, set the React project directory as current:
 ```
 cd my-family-app
@@ -185,7 +217,7 @@ export default GrowExample;
 
 ## Use Font Awesome
 
-You can read about using Font Awesome in their [official docs](https://fontawesome.com/v5/docs/web/use-with/react).
+You can read about using Font Awesome in their [official docs](#font-awesome).
 
 1. Execute the following commands:
 ```
@@ -223,7 +255,7 @@ npm install --save @fortawesome/react-fontawesome
 
 3. Add icon/s - Individual Use
 
-Read more in Font Awesome docs. This can be tedious.
+Read more about it in Font Awesome docs. Individual Use can be tedious.
 
 ## Links
 
@@ -255,3 +287,7 @@ Read more in Font Awesome docs. This can be tedious.
 
 ### Font Awesome
 - https://fontawesome.com/v5/docs/web/use-with/react
+
+### Others
+- https://legacy.reactjs.org/docs/handling-events.html
+- https://legacy.reactjs.org/docs/forms.html
