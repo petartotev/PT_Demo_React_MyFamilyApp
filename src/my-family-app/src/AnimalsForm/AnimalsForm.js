@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function AnimalsForm() {
     const [myAnimals, setMyAnimals] = useState([]);
@@ -13,8 +14,9 @@ function AnimalsForm() {
             </div>
             <ul>{myAnimals.map((x, index) => <li key={index}>{x}</li>)}</ul>
             <div className="d-flex justify-content-center">
-              <button className="btn btn-lg rounded-pill btn-dark text-light me-1" onClick={() => setMyAnimals([...myAnimals].sort())}>SORT</button>
-              <button type="button" className="btn btn-lg rounded-pill btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">RESET</button>
+              <button className="btn btn-lg rounded-pill btn-dark text-light me-1" onClick={() => setMyAnimals([...myAnimals].sort())}><FontAwesomeIcon icon="fa-caret-down" /></button>
+              <button className="btn btn-lg rounded-pill btn-dark text-light me-1" onClick={() => setMyAnimals([...myAnimals].sort().reverse())}><FontAwesomeIcon icon="fa-caret-up" /></button>
+              <button type="button" className="btn btn-lg rounded-pill btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><FontAwesomeIcon icon="fa-trash" /></button>
             </div>
             <div className="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div className="modal-dialog">

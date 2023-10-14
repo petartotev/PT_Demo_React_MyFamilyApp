@@ -5,18 +5,20 @@
 ## Contents
 - [General Information](#general-information)
 - [Create new React Project](#create-new-react-project)
-- [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
-- [Use React Bootstrap Components](#use-react-bootstrap-components)
 - [Debugging React App](#debugging-react-app)
   - [Set Debugging](#set-debugging)
   - [Debug Console Known Issues](#debug-console-known-issues)
 - [ESLint with React](#eslint-with-react)
-- [Useful Links](#useful-links)
+- [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
+- [Use React Bootstrap Components](#use-react-bootstrap-components)
+- [Use Font Awesome](#use-font-awesome)
+- [Links](#links)
   - [React](#react)
   - [JS](#js)
   - [Debugging](#debugging)
   - [ESLint](#eslint)
   - [Bootstrap 5 and React-Bootstrap](#bootstrap-5-and-react-bootstrap)
+  - [Font Awesome](#font-awesome)
 
 ## General Information
 https://legacy.reactjs.org/docs/handling-events.html
@@ -42,56 +44,6 @@ npx create-next-app my-family-app
 3. Run the application on default port 3000 using:
 ```
 npm start
-```
-
-## Install Bootstrap 5 for React
-You can use the following link as a reference:  
-https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/
-
-1. In command prompt, set the React project directory as current:
-```
-cd my-family-app
-```
-2. Using node package manager, install bootstrap:
-```
-npm install bootstrap
-```
-3. in ```index.js```, add the following on top:
-```
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-```
-4. Using node package manager, install jquery popper.js:
-```
-npm install jquery popper.js
-```
-5. ```in index.js```, add the following 2 lines below the lines added in step 3:
-```
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import $ from 'jquery';
-import Popper from 'popper.js';
-```
-
-## Use React-Bootstrap Components
-1. In command prompt, set the React project directory as current:
-```
-cd my-family-app
-```
-2. Using node package manager, install:
-```
-npm install react-bootstrap bootstrap
-```
-3. Go to https://react-bootstrap.netlify.app/docs/components/accordion and choose your preferred component.
-4. Import the component and use it:
-```
-import Spinner from 'react-bootstrap/Spinner';
-
-function GrowExample() {
-  return <Spinner animation="grow" />;
-}
-
-export default GrowExample;
 ```
 
 ## Debugging React App
@@ -163,8 +115,6 @@ Fix:
 </div>
 ```
 
-
-
 ## ESLint with React
 In order to execute ESLint for all ```.js``` files in your React repository, you need to:
 1. Add the following line in the ```"scripts"``` block of the ```package.json``` file:
@@ -183,7 +133,99 @@ In order to execute ESLint for all ```.js``` files in your React repository, you
 npm run lint
 ```
 
-## Useful Links
+## Install Bootstrap 5 for React
+You can use the following link as a reference:  
+https://www.geeksforgeeks.org/how-to-install-bootstrap-in-react-js/
+
+1. In command prompt, set the React project directory as current:
+```
+cd my-family-app
+```
+2. Using node package manager, install bootstrap:
+```
+npm install bootstrap
+```
+3. in ```index.js```, add the following on top:
+```
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+```
+4. Using node package manager, install jquery popper.js:
+```
+npm install jquery popper.js
+```
+5. ```in index.js```, add the following 2 lines below the lines added in step 3:
+```
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import $ from 'jquery';
+import Popper from 'popper.js';
+```
+
+## Use React-Bootstrap Components
+1. In command prompt, set the React project directory as current:
+```
+cd my-family-app
+```
+2. Using node package manager, install:
+```
+npm install react-bootstrap bootstrap
+```
+3. Go to https://react-bootstrap.netlify.app/docs/components/accordion and choose your preferred component.
+4. Import the component and use it:
+```
+import Spinner from 'react-bootstrap/Spinner';
+
+function GrowExample() {
+  return <Spinner animation="grow" />;
+}
+
+export default GrowExample;
+```
+
+## Use Font Awesome
+
+You can read about using Font Awesome in their [official docs](https://fontawesome.com/v5/docs/web/use-with/react).
+
+1. Execute the following commands:
+```
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+```
+
+2. Add icon/s - Global Use
+
+- In ```App.js```, add the following:
+
+```
+  import ReactDOM from 'react-dom'
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { fab } from '@fortawesome/free-brands-svg-icons'
+  import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+  library.add(fab, faCheckSquare, faCoffee)
+```
+
+- In any Component (e.g. ```AnimalForm.js```), add the following:
+
+```
+  import React from 'react'
+  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+  export const Beverage = () => (
+    <div>
+      <FontAwesomeIcon icon="check-square" />
+      Your <FontAwesomeIcon icon="coffee" /> is hot and ready!
+    </div>
+  )
+```
+
+3. Add icon/s - Individual Use
+
+Read more in Font Awesome docs. This can be tedious.
+
+## Links
 
 ### React
 - https://react.dev/reference/react-dom/components/input
@@ -210,3 +252,6 @@ npm run lint
 - https://getbootstrap.com/docs/5.1/forms/checks-radios/
 - https://react-bootstrap.netlify.app/docs/components/spinners
 - https://stackoverflow.com/questions/74191314/how-do-i-change-a-switch-size-in-react-bootstrap
+
+### Font Awesome
+- https://fontawesome.com/v5/docs/web/use-with/react
