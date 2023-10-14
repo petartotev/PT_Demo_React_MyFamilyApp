@@ -17,7 +17,7 @@ function PersonTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {myPeople != null && myPeople.length > 0 ? myPeople.sort((a,b) => parseInt(a.age) - parseInt(b.age)).map((x, index) => <tr><th scope="row">{index + 1}</th><td>{x.firstName}</td><td>{x.lastName}</td><td>{x.age}</td></tr>) : null}
+                    {myPeople != null && myPeople.length > 0 ? myPeople.sort((a,b) => parseInt(a.age) - parseInt(b.age)).map((x, index) => <tr key={index}><th scope="row">{index + 1}</th><td>{x.firstName}</td><td>{x.lastName}</td><td>{x.age}</td></tr>) : null}
                 </tbody>
             </table>
         </div>

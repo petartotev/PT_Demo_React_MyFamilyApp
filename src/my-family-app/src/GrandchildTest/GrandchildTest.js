@@ -25,7 +25,7 @@ function GrandchildTest() {
                 }
                 <div className="form-check form-switch d-flex justify-content-center mb-3">
                     <input className="form-check-input btn-lg" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={() => setGrandchildTestValue(!grandchildTestValue)}></input>
-                    <label className="form-check-label" for="flexSwitchCheckDefault"></label>
+                    <label className="form-check-label" htmlFor="flexSwitchCheckDefault"></label>
                 </div>
                 <AnimalsForm />
                 <PersonTable />

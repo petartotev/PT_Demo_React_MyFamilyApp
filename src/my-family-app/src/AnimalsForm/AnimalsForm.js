@@ -7,16 +7,16 @@ function AnimalsForm() {
         <div className="bg-secondary text-light mb-3 pb-3">
             <h6 className="display-6 d-flex justify-content-center">AnimalsForm</h6>
             <div className="form-group p-3">
-                <label for="exampleInputAnimal1">Add animal and press ENTER</label>
+                <label htmlFor="exampleInputAnimal1">Add animal and press ENTER</label>
                 <input type="animal" className="form-control" id="exampleInputAnimal1" aria-describedby="AnimalHelp" placeholder="Enter animal" onKeyUp={(event) => { if (event.key === "Enter") {setMyAnimals([...myAnimals].concat([event.target.value])); event.target.value = ''; } }}/>
                 <small id="animalHelp" className="form-text text-muted">Please, add a valid animal!</small>
             </div>
-            <ul>{myAnimals.map(x => <li>{x}</li>)}</ul>
+            <ul>{myAnimals.map((x, index) => <li key={index}>{x}</li>)}</ul>
             <div className="d-flex justify-content-center">
               <button className="btn btn-lg rounded-pill btn-dark text-light me-1" onClick={() => setMyAnimals([...myAnimals].sort())}>SORT</button>
               <button type="button" className="btn btn-lg rounded-pill btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">RESET</button>
             </div>
-            <div className="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">

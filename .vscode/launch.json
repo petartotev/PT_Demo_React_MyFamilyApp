@@ -8,8 +8,8 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/src"
+            "url": "http://localhost:3000", // change from 8080 to 3000
+            "webRoot": "${workspaceFolder}/src" // add /src
         }
     ]
 }
