@@ -57,15 +57,15 @@ function Parent() {
     }
 
     return (
-        <div className="Parent" class="row bg-dark text-light">
-            <div class="col-md-12">
-                <h1 class="display-1 d-flex justify-content-center">Parent</h1>
-                <div class="d-flex justify-content-center">
-                    <button onClick={buttonHandler} class="btn btn-lg rounded-pill btn-light text-dark m-3">ACTIVATE!</button>
+        <div className="Parent row bg-dark text-light">
+            <div className="col-md-12">
+                <h1 className="display-1 d-flex justify-content-center">Parent</h1>
+                <div className="d-flex justify-content-center">
+                    <button onClick={buttonHandler} className="btn btn-lg rounded-pill btn-light text-dark m-3">ACTIVATE!</button>
                 </div>
                 <hr></hr>
-                <p class="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? 'Random number received from ChildGiver:' : null}</i></p>
-                <h3 class="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? childGiverNumber : null}</i></h3>
+                <p className="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? 'Random number received from ChildGiver:' : null}</i></p>
+                <h3 className="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? childGiverNumber : null}</i></h3>
                 <ChildReceiver parentResult={parentValue} childGiverValue={childGiverNumber} />
                 <ChildGiver giveNumberToParent={giveNumberToParent} />
             </div>

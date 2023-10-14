@@ -4,15 +4,16 @@
 
 ## Contents
 - [General Information](#general-information)
-- [Create new React project](#create-new-react-project)
+- [Create new React Project](#create-new-react-project)
 - [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
 - [Use React Bootstrap Components](#use-react-bootstrap-components)
+- [Debug React App](#debug-react-app)
 - [Useful Links](#useful-links)
 
 ## General Information
 https://legacy.reactjs.org/docs/handling-events.html
 
-## Create new React project
+## Create new React Project
 1. Check if you have ```node```, ```npm``` and ```npx``` installed:
 ```
 node --version
@@ -21,10 +22,15 @@ npx --version
 ```
 If not, download ```node.js``` from here: https://nodejs.org/en
 
-2. Create new React app using the following command:
+2. Create new [Create React App (CRA)](https://create-react-app.dev/) React app using the following command:
 ```
 npx create-react-app my-family-app
 ```
+*N.B. In case you prefer [Next.js](https://nextjs.org/) React app, use the following command which will install all necessary dependencies (```react```, ```react-dom```, ```next```):*
+```
+npx create-next-app my-family-app
+```
+
 3. Run the application on default port 3000 using:
 ```
 npm start
@@ -59,7 +65,7 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 ```
 
-## Use React Bootstrap Components
+## Use React-Bootstrap Components
 1. In command prompt, set the React project directory as current:
 ```
 cd my-family-app
@@ -80,6 +86,36 @@ function GrowExample() {
 export default GrowExample;
 ```
 
+## Debug React App
+In order to debug React Create App (RCA) in Visual Studio Code (VSC), you need to follow these steps:
+
+1. In VSC, go to ```[Run]``` tab > ```[Add Configuration...]``` > select ```Web App (Chrome)```
+
+This should have created a new ```.vscode``` directory containing a ```launch.json``` file.
+
+2. Change ```launch.json``` as follows:
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000", // change from 8080 to 3000
+            "webRoot": "${workspaceFolder}/src" // add /src
+        }
+    ]
+}
+```
+3. Set a breakpoint somewhere in code
+4. Run the application on port 3000 using:
+```
+npm start
+```
+5. Go to ```[Run]``` tab > ```[Start Debugging]``` or press F5
+6. Voila! You should have hit the breakpoint!
+
 ## Useful Links
 - https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values
 - https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
@@ -89,3 +125,5 @@ export default GrowExample;
 - https://getbootstrap.com/docs/5.0/utilities/spacing/
 - https://getbootstrap.com/docs/5.1/forms/checks-radios/
 - https://react-bootstrap.netlify.app/docs/components/spinners
+- [Configuring VSCODE DEBUGGER for Create React App (CRA) - no more console.log | JavaScript - youtube clip
+](https://www.youtube.com/watch?v=d_ScKLTKyOc)
