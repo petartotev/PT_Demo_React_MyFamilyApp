@@ -5,7 +5,11 @@
 ## Contents
 
 - [General Information](#general-information)
+  - [Create-React-App vs Next.js](#create-react-app-vs-nextjs)
 - [Create new React Project](#create-new-react-project)
+  - [Prerequisites](#prerequisites)
+  - [Option 1: Create-React-App (CRA)](#option-1-create-react-app-cra)
+  - [Option 2: Next.js](#option-2-nextjs)
 - [Debugging React App](#debugging-react-app)
   - [Set Debugging](#set-debugging)
   - [Debug Console Known Issues](#debug-console-known-issues)
@@ -28,7 +32,28 @@ PT_Demo_React_MyFamilyApp is a React application using a ```Create React App (CR
 
 ![scrot](./res/scrot_1.png)
 
+### Create-React-App vs Next.js
+
+CRA:
+- Routing => React Router;
+- Bootstrap => ```index.html``` is seeable, so you can easily add Bootstrap inside;
+- ESLint => ```npm run lint``` command in ```scripts``` block of ```package.json``` needs to be added manually;
+
+Next.js:
+- Routing => Next.js built-in router;
+- Bootstrap => ```_document.js``` file needs to be created, then certain contents from Docs to be copy-pasted;
+- ESLint => ```npm run lint``` command in ```scripts``` block of ```package.json``` is there by default;
+
+### Others
+
+- React.memo(...);
+
+https://legacy.reactjs.org/docs/react-api.html#reactmemo
+
+
 ## Create new React Project
+
+### Prerequisites
 
 1. Check if you have ```node```, ```npm``` and ```npx``` installed:
 ```
@@ -38,18 +63,29 @@ npx --version
 ```
 If not, download ```node.js``` from here: https://nodejs.org/en
 
-2. Create new [Create React App (CRA)](https://create-react-app.dev/) React app using the following command:
+### Option 1: Create-React-App (CRA)
+
+2. Create new [CRA](https://create-react-app.dev/) React app using the following command:
 ```
 npx create-react-app my-family-app
-```
-*N.B. In case you prefer [Next.js](https://nextjs.org/) React app, use the following command which will install all necessary dependencies (```react```, ```react-dom```, ```next```):*
-```
-npx create-next-app my-family-app
 ```
 
 3. Run the application on default port 3000 using:
 ```
 npm start
+```
+
+### Option 2: Next.js
+
+2. Create new [Next.js](https://nextjs.org/) React app using the following command:
+```
+npx create-next-app my-family-app
+```
+This will install the development environment along with all necessary dependencies (```react```, ```react-dom```, ```next```).
+
+3. Run the application on default port 3000 using:
+```
+npm run dev
 ```
 
 ## Debugging React App
@@ -84,6 +120,14 @@ npm start
 ```
 5. Go to ```[Run]``` tab > ```[Start Debugging]``` or press F5
 6. Voila! You should have hit the breakpoint!
+
+---
+
+N.B. If you are using Google Chrome for debugging purposes, you can add the ```React Developer Tools``` Extension which will give you 2 new tabs in the Inspect (F12) section:
+- Components - shows a tree of all Components
+- Profiler - analyzes performance
+
+---
 
 ### Debug Console Known Issues
 
@@ -146,7 +190,9 @@ Fix:
 
 ## ESLint with React
 
-In order to execute ESLint for all ```.js``` files in your React repository, you need to:
+If you are using Visual Studio Code (VSC) you can install the ```ESLint``` Microsoft extension which will immediately show any rule violations right inside the editor.
+
+Otherwise, in order to execute ESLint for all ```.js``` files in your React repository, you need to:
 1. Add the following line in the ```"scripts"``` block of the ```package.json``` file:
 ```
 {
@@ -158,6 +204,8 @@ In order to execute ESLint for all ```.js``` files in your React repository, you
   ...
 }
 ```
+This step is needed only for ```CRA``` applications. For ```Next.js```, the script alias is allegedly added by default.
+
 2. Run the following command:
 ```
 npm run lint
@@ -261,9 +309,13 @@ Read more about it in Font Awesome docs. Individual Use can be tedious.
 
 ### React
 - https://react.dev/reference/react-dom/components/input
-- https://create-react-app.dev/docs/getting-started
-- https://nextjs.org/docs
 - https://babeljs.io/
+- https://stackoverflow.com/questions/62967958/what-is-the-difference-between-next-js-and-create-react-app
+#### Create-React-App
+- https://create-react-app.dev/docs/getting-started
+- https://create-react-app.dev/docs/available-scripts/
+#### Next.js
+- https://nextjs.org/docs
 
 ### JS
 - https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values

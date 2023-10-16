@@ -5,11 +5,11 @@ import React, { useState } from 'react';
 
 function Parent() {
     const [parentValue, setParentValue] = useState();
+    const [childGiverNumber, setChildGiverNumber] = useState(-1);
+
     const buttonHandler = () => {
         getActivityFromBoredApiCom();
     }
-
-    const [childGiverNumber, setChildGiverNumber] = useState(-1);
 
     function giveNumberToParent(number) {
         setChildGiverNumber(number);

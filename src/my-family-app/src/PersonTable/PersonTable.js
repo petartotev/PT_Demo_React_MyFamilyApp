@@ -3,10 +3,9 @@ import Person from './Person.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function PersonTable() {
-    const [myPeople, setMyPeople] = useState([new Person('Se','Ds', 6666), new Person('John','Doe', 53), new Person('Petar','Totev', 33), new Person('Johnny','Cash', 69)]);
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [age, setAge] = useState(0);
+    const myEmptyPerson = new Person('', '', 0);
+    const [myPeople, setMyPeople] = useState([new Person('Boo','Foo', 104), new Person('John','Doe', 53), new Person('Petar','Totev', 33), new Person('Johnny','Cash', 69)]);
+    const [myPerson, setMyPerson] = useState(myEmptyPerson);
 
     function removePersonByIndex(index) {
         let myPeopleLocal = [...myPeople];
@@ -16,16 +15,16 @@ function PersonTable() {
 
     function handleFormSubmit(event) {
         let myPeopleLocal = [...myPeople];
-        myPeopleLocal.push(new Person(firstName, lastName, age));
-        setFirstName('');
-        setLastName('');
-        setAge(0);
+        myPeopleLocal.push(new Person(myPerson.firstName, myPerson.lastName, myPerson.age));
+        setMyPerson(myEmptyPerson);
         setMyPeople(myPeopleLocal);
         event.preventDefault();
     }
 
     function isFormFilledIn() {
-        return firstName !== null && firstName !== '' && firstName !== ' ' && lastName !== null && lastName !== '' && lastName !== ' ' && age > 0;
+        return myPerson.firstName !== null && myPerson.firstName !== '' && myPerson.firstName !== ' '
+            && myPerson.lastName !== null && myPerson.lastName !== '' && myPerson.lastName !== ' ' 
+            && myPerson.age > 0;
     }
 
     function isNullOrWhiteSpace(text) {
@@ -42,19 +41,19 @@ function PersonTable() {
             <div className="bg-secondary m-3 p-3">
                 <form className="d-flex justify-content-center" onSubmit={(e) => handleFormSubmit(e)}>
                     <label>First Name&nbsp;
-                        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />&nbsp;
+                        <input type="text" value={myPerson.firstName} onChange={(e) => setMyPerson({...myPerson, firstName: e.target.value})} />&nbsp;
                     </label>
                     <label>Last Name&nbsp;
-                        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />&nbsp;
+                        <input type="text" value={myPerson.lastName} onChange={(e) => setMyPerson({...myPerson, lastName: e.target.value})} />&nbsp;
                     </label>
                     <label>Age&nbsp;
-                        <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
+                        <input type="number" value={myPerson.age} onChange={(e) => setMyPerson({...myPerson, age: e.target.value})} />
                     </label>
                 	<input type="submit" value="Submit" className="btn btn-sm btn-light text-dark rounded-pill ms-2" disabled={isFormFilledIn() ? "" : "disabled"}/>
                 </form>
-                {isNullOrWhiteSpace(firstName) ? <small className="text-danger">Add a valid string for first name!<br /></small> : <></>}
-                {isNullOrWhiteSpace(lastName) ? <small className="text-danger">Add a valid string for last name!<br /></small> : <></>}
-                {isNullOrNonPositive(age) ? <small className="text-danger">Add a positive number for age!<br /></small> : <></>}
+                {isNullOrWhiteSpace(myPerson.firstName) ? <small className="text-danger">Add a valid string for first name!<br /></small> : <></>}
+                {isNullOrWhiteSpace(myPerson.lastName) ? <small className="text-danger">Add a valid string for last name!<br /></small> : <></>}
+                {isNullOrNonPositive(myPerson.age) ? <small className="text-danger">Add a positive number for age!<br /></small> : <></>}
             </div>
             <table className="table table-striped table-dark text-warning">
                 <thead>
