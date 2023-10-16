@@ -1,11 +1,17 @@
 import './ChildGiver.css';
 import GrandchildTest from '../GrandchildTest/GrandchildTest.js';
+import React, { useRef } from 'react';
 
 function ChildGiver({giveNumberToParent}) {
+    const myRefCounter = useRef(0);
     var childNumber = 0;
-
+    
     function setRandomValueToChildNumber() {
         childNumber = Math.round(Math.random() * 100);
+
+        myRefCounter.current++;
+        console.log(myRefCounter);
+        
         return childNumber;
     }
 
