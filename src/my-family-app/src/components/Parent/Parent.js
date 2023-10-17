@@ -1,6 +1,7 @@
 import './Parent.css';
-import ChildGiver from '../ChildGiver/ChildGiver.js';
 import ChildReceiver from '../ChildReceiver/ChildReceiver.js';
+import ChildGiver from '../ChildGiver/ChildGiver.js';
+import ChildHooker from '../ChildHooker/ChildHooker.js';
 import React, { useState } from 'react';
 
 function Parent() {
@@ -68,6 +69,7 @@ function Parent() {
                 <h3 className="d-flex justify-content-center"><i>{childGiverNumber != null && childGiverNumber !== -1 ? childGiverNumber : null}</i></h3>
                 <ChildReceiver parentResult={parentValue} childGiverValue={childGiverNumber} />
                 <ChildGiver giveNumberToParent={giveNumberToParent} />
+                <ChildHooker />
             </div>
         </div>
     )

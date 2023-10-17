@@ -83,7 +83,22 @@ npx create-next-app my-family-app
 ```
 This will install the development environment along with all necessary dependencies (```react```, ```react-dom```, ```next```).
 
-3. Run the application on default port 3000 using:
+3. If asked, answer the following questions as follows:
+
+- Would you like to use TypeScript?
+	- No
+- Would you like to use ESLint?
+  - Yes
+- Would you like to use Tailwind CSS?
+  - No
+- Would you like to use `src/` directory?
+  - No
+- Would you like to use App Router? (recommended)
+  - No
+- Would you like to customize the default import alias?
+  - No
+
+4. Run the application on default port 3000 using:
 ```
 npm run dev
 ```

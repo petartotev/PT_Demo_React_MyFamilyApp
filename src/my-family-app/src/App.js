@@ -1,5 +1,5 @@
 import './App.css';
-import Parent from './Parent/Parent.js';
+import Parent from './components/Parent/Parent.js';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCaretUp, faCaretDown, faTrash } from '@fortawesome/free-solid-svg-icons'
 

@@ -14,7 +14,7 @@ function GrandchildTest() {
                 {
                     !grandchildTestValue ?
                     <div className="mt-3 mb-3">
-                        <p className="d-flex justify-content-center">The spinner below is a ready-to-use Component imported from 'react-bootstrap' library.</p>
+                        <p className="d-flex justify-content-center">The spinner below is a ready-to-use Component imported from 'react-bootstrap' library:</p>
                         <div className="d-flex justify-content-center">
                             <Spinner animation="border" role="status">
                                 <span className="visually-hidden">Loading...</span>
