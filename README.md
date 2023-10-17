@@ -31,6 +31,7 @@
 PT_Demo_React_MyFamilyApp is a React application using a ```Create React App (CRA)``` template.
 
 ![scrot](./res/scrot_1.png)
+![scrot](./res/scrot_2.png)
 
 ### Create-React-App vs Next.js
 
