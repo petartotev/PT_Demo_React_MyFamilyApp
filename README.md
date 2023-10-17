@@ -18,6 +18,9 @@
 - [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
 - [Use React Bootstrap Components](#use-react-bootstrap-components)
 - [Use Font Awesome](#use-font-awesome)
+- [Notes](#notes)
+  - [The key prop](#the-key-prop)
+  - [Hooks](#hooks)
 - [Links](#links)
   - [React](#react)
   - [JS](#js)
@@ -25,6 +28,7 @@
   - [ESLint](#eslint)
   - [Bootstrap 5 and React-Bootstrap](#bootstrap-5-and-react-bootstrap)
   - [Font Awesome](#font-awesome)
+  - [Others](#others)
 
 ## General Information
 
@@ -44,13 +48,6 @@ Next.js:
 - Routing => Next.js built-in router;
 - Bootstrap => ```_document.js``` file needs to be created, then certain contents from Docs to be copy-pasted;
 - ESLint => ```npm run lint``` command in ```scripts``` block of ```package.json``` is there by default;
-
-### Others
-
-- React.memo(...);
-
-https://legacy.reactjs.org/docs/react-api.html#reactmemo
-
 
 ## Create new React Project
 
@@ -166,6 +163,8 @@ Fix:
 ```
 <ul>{myAnimals.map((x, index) => <li key={index}>{x}</li>)}</ul>
 ```
+
+Check [The key prop](#the-key-prop) in [Notes](#notes) section for more information.
 
 ---
 
@@ -321,21 +320,52 @@ npm install --save @fortawesome/react-fontawesome
 
 Read more about it in Font Awesome docs. Individual Use can be tedious.
 
+### Notes
+
+#### React.memo(...);
+
+https://legacy.reactjs.org/docs/react-api.html#reactmemo
+
+#### The key prop
+
+For the key prop, use object's id >> unique combination of object's properties >> index provided by map function.
+
+#### Hooks
+
+Hooks are functions. They start with the `use-` prefix (useState, useEffect).
+
+First rule of Hooks:
+
+`Only call Hooks at the top level! They should always be called. They should be always be executed in the same order. `
+
+It is forbidden to wrap them in conditional statements etc.
+
+Second rule of Hooks:
+
+`Only call hooks in function components!`
+
+Only custom hooks can call other hooks, if needed.
+
 ## Links
 
 ### React
 - https://react.dev/reference/react-dom/components/input
 - https://babeljs.io/
 - https://stackoverflow.com/questions/62967958/what-is-the-difference-between-next-js-and-create-react-app
+- https://www.w3schools.com/react/react_useeffect.asp
+
 #### Create-React-App
 - https://create-react-app.dev/docs/getting-started
 - https://create-react-app.dev/docs/available-scripts/
+
 #### Next.js
 - https://nextjs.org/docs
+- https://nextjs.org/docs/pages/building-your-application/configuring/src-directory
 
 ### JS
 - https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values
 - https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
+- https://dev.to/uzodike/settimeout-in-useeffect-api-call-data-fetching-j33
 
 ### Debugging
 - [Configuring VSCODE DEBUGGER for Create React App (CRA) - no more console.log | JavaScript - youtube clip
@@ -352,6 +382,7 @@ Read more about it in Font Awesome docs. Individual Use can be tedious.
 - https://getbootstrap.com/docs/5.1/forms/checks-radios/
 - https://react-bootstrap.netlify.app/docs/components/spinners
 - https://stackoverflow.com/questions/74191314/how-do-i-change-a-switch-size-in-react-bootstrap
+- https://stackoverflow.com/questions/53721711/how-to-set-responsive-images-max-width-bootstrap-4
 
 ### Font Awesome
 - https://fontawesome.com/v5/docs/web/use-with/react
@@ -359,3 +390,7 @@ Read more about it in Font Awesome docs. Individual Use can be tedious.
 ### Others
 - https://legacy.reactjs.org/docs/handling-events.html
 - https://legacy.reactjs.org/docs/forms.html
+- https://apipheny.io/free-api/ - list of free API-s
+  - https://www.boredapi.com/api/activity
+  - https://dog.ceo/api/breeds/image/random
+  - https://official-joke-api.appspot.com/random_joke

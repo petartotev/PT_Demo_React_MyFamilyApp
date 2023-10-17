@@ -18,8 +18,8 @@ function ChildHooker() {
                     throw new Error('useEffect did not manage to fetch data from server!');
                 }})
             .then(data => {
-                console.log(data.message);
-                setDog(new DogApiResponse(data.message, data.status));
+                console.log(data);
+                setDog(new DogApiResponse(data.message, data.status, getBreedFromDogApiResponseMessage(data.message)));
             })
             .catch((err) => {
                 console.log(err);
@@ -32,7 +32,7 @@ function ChildHooker() {
         }, 15000);
 
         return () => clearTimeout(timer);
-    }) // }, []) as a dependency parameter will limit the execution to 1.
+    }) // }, ??) ?? missing dependency parameter will lead to infinite execution.
 
     // This useEffect will fetch a random joke only once due to [] dependency paramter:
     useEffect(() => {
@@ -53,13 +53,22 @@ function ChildHooker() {
             .finally(() => {});
         }, []) // [] as a dependency parameter will limit the execution to 1.
 
+    function getBreedFromDogApiResponseMessage(message) {
+        try {
+            let breed = message.replace('https://images.dog.ceo/breeds/', '');
+            return breed.substring(0, breed.indexOf("/"));
+        } catch {
+            return undefined;
+        }
+    }
+
     return (
         <div className="row bg-success text-light m-3">
             <div className="col-md-12 p-3">
                 <h4 className="display-4 d-flex justify-content-center">ChildHooker</h4>
-                {dog && <div><p className="d-flex justify-content-center">Random dog photo fetched once in every 15 seconds from dog.ceo/api (<b class="text-warning">useEffect&nbsp;</b> hook + setTimeout):</p><div className="d-flex justify-content-center"><img src={dog.message} alt="dog" className="img-max img-thumbnail" /></div></div>}
+                {dog && <div><p className="d-flex justify-content-center">Random dog photo fetched once in every 15 seconds from dog.ceo/api (<b className="text-warning">useEffect&nbsp;</b> hook + setTimeout):</p><div className="d-flex justify-content-center"><img src={dog.message} alt="dog" className="img-max img-thumbnail" /></div>{dog.breed && <p className="d-flex justify-content-center">{dog.breed}</p>}</div>}
                 {dog && joke && <hr/>}
-                {joke && <div><p className="d-flex justify-content-center">Random joke fetched exactly once from official-joke.api (<b class="text-warning">useEffect&nbsp;</b> hook + [] for dependency):</p><p className="display-5 d-flex justify-content-center">- {joke.setup}</p><p className="display-6 d-flex justify-content-center"> - {joke.punchline}</p></div>}
+                {joke && <div><p className="d-flex justify-content-center">Random joke fetched exactly once from official-joke.api (<b className="text-warning">useEffect&nbsp;</b> hook + [] for dependency):</p><p className="display-5 d-flex justify-content-center">- {joke.setup}</p><p className="display-6 d-flex justify-content-center"> - {joke.punchline}</p></div>}
             </div>
         </div>
     )
