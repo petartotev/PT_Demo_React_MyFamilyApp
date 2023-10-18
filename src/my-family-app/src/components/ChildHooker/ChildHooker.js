@@ -32,7 +32,7 @@ function ChildHooker() {
         }, 15000);
 
         return () => clearTimeout(timer);
-    }) // }, ??) ?? missing dependency parameter will lead to infinite execution.
+    }) // }, ??) ?? missing dependency parameter leads to infinite execution.
 
     // This useEffect will fetch a random joke only once due to [] dependency paramter:
     useEffect(() => {
@@ -51,7 +51,7 @@ function ChildHooker() {
                 console.log(err);
             })
             .finally(() => {});
-        }, []) // [] as a dependency parameter will limit the execution to 1.
+        }, []) // [] as a dependency parameter limits the execution to 1.
 
     function getBreedFromDogApiResponseMessage(message) {
         try {
