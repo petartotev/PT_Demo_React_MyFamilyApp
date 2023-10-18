@@ -39,7 +39,7 @@ function PersonTable() {
         <div className="bg-dark text-light">
             <h6 className="display-6 d-flex justify-content-center">PersonTable</h6>
             <div className="bg-secondary m-3 p-3">
-                <form className="d-flex justify-content-center" onSubmit={(e) => handleFormSubmit(e)}>
+                <form onSubmit={(e) => handleFormSubmit(e)}>
                     <label>First Name&nbsp;
                         <input type="text" value={myPerson.firstName} onChange={(e) => setMyPerson({...myPerson, firstName: e.target.value})} />&nbsp;
                     </label>

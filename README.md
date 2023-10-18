@@ -394,3 +394,5 @@ Only custom hooks can call other hooks, if needed.
   - https://www.boredapi.com/api/activity
   - https://dog.ceo/api/breeds/image/random
   - https://official-joke-api.appspot.com/random_joke
+- https://bobbyhadz.com/blog/react-scroll-to-top
+- https://stackoverflow.com/questions/10039419/css-how-to-center-a-bottom-fixed-menu

@@ -3,15 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ScrollToTop() {
     return (
-        <button onClick={() => {window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} className="btn btn-lg btn-light text-dark rounded-pill border" style={{
-            position: 'fixed',
-            padding: '1rem 2rem',
+        <button onClick={() => {window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} className="btn btn-sm text-light rounded-pill border opacity-25" style={{
             fontSize: '20px',
-            bottom: '40px',
-            right: '40px'
+            position: 'fixed',
+            bottom: '5px',
+            left: '50%',
+            marginLeft: '-23px'
           }}> 
-            <FontAwesomeIcon icon="fa-caret-up" />
-            </button>
+            &nbsp;<FontAwesomeIcon icon="fa-caret-up" />&nbsp;
+        </button>
     )
 }
 

@@ -15,7 +15,7 @@ function AnimalsForm() {
             <ul>{myAnimals.map((x, index) => <li key={index}>{x}</li>)}</ul>
             <div className="d-flex justify-content-center">
               <button className="btn btn-lg rounded-pill btn-dark text-light me-1" onClick={() => setMyAnimals([...myAnimals].sort())} disabled={myAnimals === null || myAnimals.length < 2}><FontAwesomeIcon icon="fa-caret-down" /></button>
-              <button className="btn btn-lg rounded-pill btn-dark text-light me-1" onClick={() => setMyAnimals([...myAnimals].sort().reverse())} disabled={myAnimals === null || myAnimals.length < 2}><FontAwesomeIcon icon="fa-caret-up" /></button>
+              <button className="btn btn-lg rounded-pill btn-dark text-light ms-1 me-1" onClick={() => setMyAnimals([...myAnimals].sort().reverse())} disabled={myAnimals === null || myAnimals.length < 2}><FontAwesomeIcon icon="fa-caret-up" /></button>
               <button type="button" className="btn btn-lg rounded-pill btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled={myAnimals === null || myAnimals.length === 0}><FontAwesomeIcon icon="fa-trash" /></button>
             </div>
             <div className="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

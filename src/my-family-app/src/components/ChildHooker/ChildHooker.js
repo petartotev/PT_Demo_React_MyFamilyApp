@@ -66,9 +66,9 @@ function ChildHooker() {
         <div className="row bg-success text-light m-3">
             <div className="col-md-12 p-3">
                 <h4 className="display-4 d-flex justify-content-center">ChildHooker</h4>
-                {dog && <div><p className="d-flex justify-content-center">Random dog photo fetched once in every 15 seconds from dog.ceo/api (<b className="text-warning">useEffect&nbsp;</b> hook + setTimeout):</p><div className="d-flex justify-content-center"><img src={dog.message} alt="dog" className="img-max img-thumbnail" /></div>{dog.breed && <p className="d-flex justify-content-center">{dog.breed}</p>}</div>}
+                {dog && <div><p className="d-flex justify-content-center">Random dog photo fetched once in every 15 seconds from dog.ceo/api by using useEffect hook + setTimeout:</p><div className="d-flex justify-content-center"><img src={dog.message} alt="dog" className="img-max img-thumbnail" /></div>{dog.breed && <p className="d-flex justify-content-center">{dog.breed}</p>}</div>}
                 {dog && joke && <hr/>}
-                {joke && <div><p className="d-flex justify-content-center">Random joke fetched exactly once from official-joke.api (<b className="text-warning">useEffect&nbsp;</b> hook + [] for dependency):</p><p className="display-5 d-flex justify-content-center">- {joke.setup}</p><p className="display-6 d-flex justify-content-center"> - {joke.punchline}</p></div>}
+                {joke && <div><p className="d-flex justify-content-center">Random joke fetched exactly once from official-joke.api by using useEffect hook + [] for dependency param:</p><p className="display-5 d-flex justify-content-center">- {joke.setup}</p><p className="display-6 d-flex justify-content-center"> - {joke.punchline}</p></div>}
             </div>
         </div>
     )
