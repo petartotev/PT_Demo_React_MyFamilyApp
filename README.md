@@ -19,6 +19,7 @@
 - [Use React Bootstrap Components](#use-react-bootstrap-components)
 - [Use Font Awesome](#use-font-awesome)
 - [Notes](#notes)
+  - [React.memo(...)](#reactmemo)
   - [The key prop](#the-key-prop)
   - [Hooks](#hooks)
 - [Links](#links)
@@ -324,6 +325,42 @@ Read more about it in Font Awesome docs. Individual Use can be tedious.
 
 #### React.memo(...);
 
+Cache (memoize) output from component only when it is faster (measure by using the `Profile` tool in the `React Developer Tools` extension in Google Chrome) - usually when it renders often with the same props.
+
+Here is how to use it in HouseRow component:
+
+```
+import React from 'react';
+
+const HouseRow = ({house}) => {
+  return (
+    <tr>
+      <td>{house.address}</td>
+      <td>{house.country}</td>
+    </tr>
+  )
+}
+
+const HouseRowMem = React.memo(HouseRow);
+
+export default HouseRow;
+export { HouseRowMem };
+```
+
+Here is how to use HouseRowMem in HouseList component:
+
+```
+<table>
+  <thead></thead>
+  <tbody>
+    {houses.map(h) => (
+      <HouseRowMem key={h.id} house={h} />
+    )}
+  </tbody>
+</table>
+```
+
+Read more:
 https://legacy.reactjs.org/docs/react-api.html#reactmemo
 
 #### The key prop
@@ -345,6 +382,51 @@ Second rule of Hooks:
 `Only call hooks in function components!`
 
 Only custom hooks can call other hooks, if needed.
+
+#### Effects
+
+Effects (or "Side" Effects) are used when you have something unpredictable - API interaction, browser API-s (document, window) etc.
+
+Here is how the component is rendered:
+1. It calculates state (setState) and visualizes the DOM
+2. It executes setEffect
+
+#### Memo Hook
+
+Memoize values in components!
+
+```
+const result = useMemo(() => { return doSomethingTimeConsuming(houses); }, [houses]);
+```
+
+#### Ref Hook
+
+Persist values that survive re-renders without causing a re-render.
+Similar to what state (useState) does?
+
+```
+function ChildGiver({giveNumberToParent}) {
+    const myRefCounter = useRef(0);
+    var childNumber = 0;
+    
+    function setRandomValueToChildNumber() {
+        childNumber = Math.round(Math.random() * 100);
+
+        myRefCounter.current++;
+        console.log(myRefCounter);
+        
+        return childNumber;
+    }
+
+    return (
+        <div className="ChildGiver row bg-info text-light m-3">...</div>
+    )
+}
+```
+
+useRef() returns an object that has a 'current' property that contains the current value. It can be modified directly and it won't trigger a re-render.
+
+When a reference type is passed to useRef, the Ref Hook guarantees that the same reference is returned in the current property across re-renders.
 
 ## Links
 
