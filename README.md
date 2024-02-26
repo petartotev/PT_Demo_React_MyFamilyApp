@@ -13,7 +13,6 @@
 - [Debugging React App](#debugging-react-app)
   - [Set Debugging](#set-debugging)
   - [Debug Console Known Issues](#debug-console-known-issues)
-- [Known Issues](#known-issues)
 - [ESLint with React](#eslint-with-react)
 - [Install Bootstrap 5 for React](#install-bootstrap-5-for-react)
 - [Use React Bootstrap Components](#use-react-bootstrap-components)
@@ -22,6 +21,7 @@
   - [React.memo(...)](#reactmemo)
   - [The key prop](#the-key-prop)
   - [Hooks](#hooks)
+- [Known Issues](#known-issues)
 - [Links](#links)
   - [React](#react)
   - [JS](#js)
@@ -191,17 +191,6 @@ Fix:
 Fix:
 ```
 <FontAwesomeIcon="fa-caret-down" onClick={() => setState([...myPeople].sort((a,b) => a.firstName))} />
-```
-
-## Known Issues
-
-```⚠️ onClick property function triggers without click```
-```
-<button onClick={setMyAnimals([...myAnimals].sort())}>CLICK</button>
-```
-Fix:
-```
-<button onClick={() => setMyAnimals([...myAnimals].sort())}>CLICK</button>
 ```
 
 ## ESLint with React
@@ -427,6 +416,76 @@ function ChildGiver({giveNumberToParent}) {
 useRef() returns an object that has a 'current' property that contains the current value. It can be modified directly and it won't trigger a re-render.
 
 When a reference type is passed to useRef, the Ref Hook guarantees that the same reference is returned in the current property across re-renders.
+
+## Known Issues
+
+### onClick property function triggers without click
+
+⚠️ ISSUE: onClick property function triggers without click
+```
+<button onClick={setMyAnimals([...myAnimals].sort())}>CLICK</button>
+```
+✅ SOLUTION: 
+```
+<button onClick={() => setMyAnimals([...myAnimals].sort())}>CLICK</button>
+```
+
+### WebSocket connection failed
+
+⚠️ ISSUE: In the Console of the browser, this error appears periodically:
+
+```
+WebSocketClient.js:13 WebSocket connection to 'ws://XX.XX.XXX.XXX:XXXX/ws' failed
+```
+
+![issue_2](./res/issue_2.png)
+
+✅ SOLUTION: Create new `.env` file on the root directory of the frontend app (where `package.json` is) and add the following line:
+
+```
+WDS_SOCKET_PORT=0
+```
+
+You can read more about it in [the following article](https://stackoverflow.com/questions/70585472/websocketclient-js16-websocket-connection-to-ws-localhost3000-ws-failed-r).
+
+### Form submission canceled
+
+⚠️ ISSUE: In the Console of the browser, this error appears when the `cancel button` is pressed:
+```
+Form submission canceled because the form is not connected
+```
+
+![issue_3](./res/issue_3.png)
+
+✅ SOLUTION: Add `type="button"` in the `cancel button`:
+
+before:
+```
+<form onSubmit={handleSubmit}>
+    ...
+    <div className="row mt-3">
+        <div className="col-12">
+            <button onClick={cancelCreate} className="btn btn-sm rounded-pill">&nbsp;<FontAwesomeIcon icon="fa-backward-step" size="3x" />&nbsp;</button>
+            <button type="submit" className="btn btn-sm rounded-pill">&nbsp;<FontAwesomeIcon icon="fa-floppy-disk" size="3x" />&nbsp;</button>
+        </div>
+    </div>
+</form>
+```
+
+after:
+```
+<form onSubmit={handleSubmit}>
+    ...
+    <div className="row mt-3">
+        <div className="col-12">
+            <button type="button" onClick={cancelCreate} className="btn btn-sm rounded-pill">&nbsp;<FontAwesomeIcon icon="fa-backward-step" size="3x" />&nbsp;</button>
+            <button type="submit" className="btn btn-sm rounded-pill">&nbsp;<FontAwesomeIcon icon="fa-floppy-disk" size="3x" />&nbsp;</button>
+        </div>
+    </div>
+</form>
+```
+
+You can read more about it in [the following article](https://stackoverflow.com/questions/52834504/react-form-submission-canceled-because-the-form-is-not-connected).
 
 ## Links
 
